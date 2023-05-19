@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active:
+      - ${profile:localhost}
+  datasource:
+    username: ${datasource-username:postgres}
+    password: ${datasource-password:postgres}
+    url: jdbc:postgresql://${datasource-url:localhost:5432}/${datasource-db:spring-boot-jpa-bulk-insert-performance}
+  jpa:
+    hibernate:
+      ddl-auto: ${ddl-auto:none}
+    show-sql: ${show-sql:false}
+    generate-ddl: ${generate-ddl:false}
+    properties:
+      hibernate:
+        jdbc:
+          batch-size: ${batch-size:100}
+springdoc:
+  swagger-ui: 
+    enabled: ${swagger-ui:true}
+  api-docs:
+    enabled: ${api-docs:true}
+server:
+  port: ${server-port:8080}
